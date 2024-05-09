@@ -1,0 +1,77 @@
+1- Seleziona tutti gli studenti il cui nome è Antonio e l'id è maggiore di 20 ordinati (desc) per cognome
+SELECT *
+FROM `students`
+WHERE `name` = 'Antonio'
+AND `id` > 20
+ORDER BY `surname` DESC;
+
+2- Seleziona tutti gli studenti il cui nome inizia con 'A'
+SELECT * 
+FROM `students`
+WHERE `name` LIKE 'A%';
+
+3- Seleziona tutti gli studenti il cui nome finisce con 'e'
+SELECT * 
+FROM `students`
+WHERE `name` LIKE '%e';
+
+4- Seleziona tutti gli studenti il cui nome contiene una s doppia
+SELECT * 
+FROM `students`
+WHERE `name` LIKE '%ss%';
+
+5- Seleziona la media dei voti della sessione d'esame con id 1
+SELECT AVG(`vote`)
+FROM `exam_student`
+WHERE `exam_id` = 1;
+
+6- Selezionare tutti gli studenti che si sono iscritti nel 2021
+SELECT *
+FROM `students`
+WHERE `enrolment_date` LIKE '2021-%';
+
+oppure
+
+SELECT *
+FROM `students`
+WHERE `enrolment_date` 
+BETWEEN '2021-01-01' 
+AND '2021-12-31';
+
+oppure
+
+SELECT *
+FROM `students`
+WHERE YEAR(`enrolment_date`) = 2021;
+
+7- Selezionare tutti gli insegnanti
+SELECT *
+FROM `teachers`;
+
+8- Selezionare tutti i referenti per ogni dipartimento
+SELECT `name`, `head_of_department`
+FROM `departments`;
+
+9- Selezionare tutti gli studenti il cui nome inizia per "E"
+SELECT *
+FROM `students`
+WHERE `name` LIKE 'E%';
+
+10- Selezionare tutti i corsi che non hanno un sito web
+SELECT *
+FROM `courses`
+WHERE `website` IS NULL;
+
+11- Selezionare tutti gli insegnanti che hanno un numero di telefono
+SELECT *
+FROM `teachers`
+WHERE `phone` IS NOT NULL;
+
+12- Selezionare tutti gli appelli d'esame dei mesi di giugno e luglio 2020
+SELECT *
+FROM `exams`
+WHERE `date` BETWEEN '2020-06-01' AND '2020-07-31';
+
+12- Qual è il numero totale degli studenti iscritti?
+SELECT COUNT(`id`) AS `students_number`
+FROM `students`;
